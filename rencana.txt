@@ -1,0 +1,77 @@
+# Botpress
+- register
+- login
+- profile
+- laporan
+	- pengaduan
+	- aspirasi
+	- permintaan informasi
+------------
+- cari aduan
+- statistik
+- about
+
+======================
+
+# pengguna
+id
+nama_lengkap,
+email,
+password,
+no_handphone,
+tanggal_lahir,
+pekerjaan,
+tempat_tinggal_saat_ini,
+alamat
+
+# laporan
+id
+laporan_id
+tipe
+judul
+isi
+tanggal
+lokasi
+kategori
+status
+
+======================
+
+CREATE TABLE pengguna (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nama_lengkap VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255),
+    no_handphone VARCHAR(20),
+    tanggal_lahir DATE,
+    pekerjaan VARCHAR(100),
+    jenis_kelamin VARCHAR(20),
+    tempat_tinggal_saat_ini VARCHAR(255),
+    alamat TEXT
+);
+
+CREATE TABLE laporan (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    pengguna_id INT,
+    FOREIGN KEY (pengguna_id) REFERENCES pengguna(id),
+    tipe VARCHAR(50),
+    judul VARCHAR(255),
+    isi TEXT,
+    tanggal DATE,
+    lokasi VARCHAR(255),
+    kategori VARCHAR(100),
+    status VARCHAR(50)
+);
+
+=================
+
+{
+    "nama_lengkap": "Tes",
+    "email": "tes@gmail.com",
+    "password": "11111111",
+    "no_handphone": "081222333444",
+    "tanggal_lahir": "2024-08-05",
+    "pekerjaan": "CEO",
+    "tempat_tinggal_saat_ini": "Kota Malang",
+    "alamat": "Jl Raas no 1, Kasin, Klojen, Kota Malang"
+}
